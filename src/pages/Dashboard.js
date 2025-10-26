@@ -39,7 +39,7 @@ const Dashboard = () => {
     DataService.QUERY_KEYS.TODAY_HABITS,
     () => habitsAPI.getTodayHabits(),
     { 
-      refetchInterval: 30000, // Refetch every 30 seconds
+      refetchInterval: 30000, 
       select: DataService.transformHabitData
     }
   );
