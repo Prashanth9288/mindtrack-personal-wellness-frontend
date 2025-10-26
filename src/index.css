@@ -1,0 +1,302 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-white;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary-600 text-white hover:bg-secondary-700 active:bg-secondary-800;
+  }
+  
+  .btn-outline {
+    @apply btn border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 active:bg-gray-100;
+  }
+  
+  .btn-ghost {
+    @apply btn text-gray-700 hover:bg-gray-100 active:bg-gray-200;
+  }
+  
+  .btn-sm {
+    @apply h-9 px-4 py-2 text-xs font-medium;
+  }
+  
+  .btn-md {
+    @apply h-10 px-6 py-2 text-sm font-medium;
+  }
+  
+  .btn-lg {
+    @apply h-12 px-8 py-3 text-base font-medium;
+  }
+  
+  /* Default button size */
+  .btn:not(.btn-sm):not(.btn-md):not(.btn-lg) {
+    @apply h-10 px-6 py-2 text-sm font-medium;
+  }
+  
+  /* Button alignment utilities */
+  .btn-group {
+    @apply flex items-center space-x-2;
+  }
+  
+  .btn-group-vertical {
+    @apply flex flex-col items-stretch space-y-2;
+  }
+  
+  .btn-full {
+    @apply w-full;
+  }
+  
+  .btn-center {
+    @apply mx-auto;
+  }
+  
+  /* Progress Bar Styles */
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full transition-all duration-300 ease-in-out;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg border border-gray-200 shadow-sm;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200;
+  }
+  
+  .card-content {
+    @apply px-6 py-4;
+  }
+  
+  .card-footer {
+    @apply px-6 py-4 border-t border-gray-200;
+  }
+  
+  .input {
+    @apply flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  
+  .label {
+    @apply text-sm font-medium text-gray-700 mb-1 block;
+  }
+  
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-800;
+  }
+  
+  .badge-secondary {
+    @apply badge bg-secondary-100 text-secondary-800;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-100 text-green-800;
+  }
+  
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800;
+  }
+  
+  .badge-error {
+    @apply badge bg-red-100 text-red-800;
+  }
+  
+  .progress-bar {
+    @apply w-full bg-gray-200 rounded-full h-2;
+  }
+  
+  .progress-fill {
+    @apply bg-primary-600 h-2 rounded-full transition-all duration-300 ease-in-out;
+  }
+  
+  .streak-fire {
+    @apply text-orange-500 animate-bounce-gentle;
+  }
+  
+  .habit-card {
+    @apply card hover:shadow-md transition-shadow duration-200 cursor-pointer;
+  }
+  
+  .habit-card.completed {
+    @apply border-green-200 bg-green-50;
+  }
+  
+  .mood-indicator {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-white font-semibold;
+  }
+  
+  .mood-very-happy {
+    @apply bg-gradient-to-br from-yellow-400 to-orange-500;
+  }
+  
+  .mood-happy {
+    @apply bg-gradient-to-br from-green-400 to-green-500;
+  }
+  
+  .mood-neutral {
+    @apply bg-gradient-to-br from-gray-400 to-gray-500;
+  }
+  
+  .mood-sad {
+    @apply bg-gradient-to-br from-blue-400 to-blue-500;
+  }
+  
+  .mood-very-sad {
+    @apply bg-gradient-to-br from-purple-400 to-purple-500;
+  }
+  
+  .calendar-day {
+    @apply w-8 h-8 flex items-center justify-center text-sm rounded-full hover:bg-gray-100 cursor-pointer transition-colors relative;
+  }
+
+  /* Mood emoji positioning for smaller day buttons */
+  .mood-calendar .react-calendar__tile .mood-emoji {
+    @apply absolute top-0.5 right-0.5 text-sm pointer-events-none;
+  }
+  
+  .calendar-day.today {
+    @apply bg-primary-100 text-primary-700 font-semibold;
+  }
+  
+  .calendar-day.completed {
+    @apply bg-green-100 text-green-700;
+  }
+  
+  .calendar-day.missed {
+    @apply bg-red-100 text-red-700;
+  }
+  
+  .stat-card {
+    @apply card p-6 text-center;
+  }
+  
+  .stat-value {
+    @apply text-3xl font-bold text-gray-900;
+  }
+
+  /* React Calendar Custom Styles */
+  .mood-calendar {
+    @apply w-full border-0 bg-transparent;
+  }
+
+  .mood-calendar .react-calendar__navigation {
+    @apply flex items-center justify-between mb-6;
+  }
+
+  .mood-calendar .react-calendar__navigation button {
+    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg px-3 py-2 transition-all duration-200;
+  }
+
+  .mood-calendar .react-calendar__navigation__label {
+    @apply text-lg font-semibold text-gray-900;
+  }
+
+  .mood-calendar .react-calendar__month-view__weekdays {
+    @apply mb-4;
+  }
+
+  .mood-calendar .react-calendar__month-view__weekdays__weekday {
+    @apply text-center text-sm font-medium text-gray-600 py-2;
+  }
+
+  .mood-calendar .react-calendar__tile {
+    @apply relative h-10 w-10 flex items-center justify-center text-xs font-medium rounded-lg transition-all duration-200 hover:bg-gray-100 hover:scale-105;
+  }
+
+  .mood-calendar .react-calendar__tile--active {
+    @apply bg-white border-2 border-blue-500 text-blue-700 shadow-md;
+  }
+
+  .mood-calendar .react-calendar__tile--now {
+    @apply bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-bold;
+  }
+
+  .mood-calendar .react-calendar__tile:hover {
+    @apply bg-gray-50 shadow-md;
+  }
+
+  .mood-calendar .react-calendar__tile--active:hover {
+    @apply border-blue-600 text-blue-800 bg-blue-50;
+  }
+
+  .mood-calendar .react-calendar__tile--now:hover {
+    @apply bg-gradient-to-r from-yellow-500 to-orange-500;
+  }
+  
+  .stat-label {
+    @apply text-sm text-gray-600 mt-1;
+  }
+  
+  .insight-card {
+    @apply card p-4 border-l-4;
+  }
+  
+  .insight-positive {
+    @apply border-green-400 bg-green-50;
+  }
+  
+  .insight-warning {
+    @apply border-yellow-400 bg-yellow-50;
+  }
+  
+  .insight-info {
+    @apply border-blue-400 bg-blue-50;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Slider styles */
+  .slider {
+    @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none w-5 h-5 bg-primary-600 rounded-full cursor-pointer shadow-lg;
+  }
+  
+  .slider::-moz-range-thumb {
+    @apply w-5 h-5 bg-primary-600 rounded-full cursor-pointer border-0 shadow-lg;
+  }
+  
+  .slider:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+}
